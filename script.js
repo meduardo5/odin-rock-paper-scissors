@@ -30,6 +30,7 @@ function playRound(humanChoice, computerChoice){
     if((humanChoice === "rock" && computerChoice === "rock") || (humanChoice === "paper" && computerChoice === "paper") || (humanChoice === "scissors" && computerChoice === "scissors")){
         console.log(`You tied! ${computerChoice} ties with ${humanChoice}`);
         console.log(`Human: ${humanScore} Computer: ${computerScore}`);
+        para.textContent = `You tied! ${computerChoice} ties with ${humanChoice}`;
         userScore.textContent = `Player Score: ${humanScore}`;
         compScore.textContent = `Computer Score: ${computerScore}`;
     }
@@ -37,6 +38,7 @@ function playRound(humanChoice, computerChoice){
         computerScore++;
         console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
         console.log(`Human: ${humanScore} Computer: ${computerScore}`);
+        para.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
         userScore.textContent = `Player Score: ${humanScore}`;
         compScore.textContent = `Computer Score: ${computerScore}`;
     }
@@ -44,6 +46,7 @@ function playRound(humanChoice, computerChoice){
         humanScore++;
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
         console.log(`Human: ${humanScore} Computer: ${computerScore}`);
+        para.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
         userScore.textContent = `Player Score: ${humanScore}`;
         compScore.textContent = `Computer Score: ${computerScore}`;
     }
@@ -104,11 +107,10 @@ const compScore = document.createElement("p");
 
 scoreboard.append(para, userScore, compScore);
 document.body.append(scoreboard);
-// NEED TO ADD SCORES TO THE NEWLY CREATED DIV "SCOREBOARD" //
+
 para.textContent = "Begin Game! Select your choice."
 userScore.textContent = `Player Score: ${humanScore}`;
 compScore.textContent = `Computer Score: ${computerScore}`;
-
 
 
 //playGame();

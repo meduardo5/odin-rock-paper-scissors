@@ -33,6 +33,7 @@ function playRound(humanChoice, computerChoice){
         para.textContent = `You tied! ${computerChoice} ties with ${humanChoice}`;
         userScore.textContent = `Player Score: ${humanScore}`;
         compScore.textContent = `Computer Score: ${computerScore}`;
+        checkScore(humanScore, computerScore);
     }
     else if((humanChoice === "rock" && computerChoice === "paper") || (humanChoice === "paper" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "rock")){
         computerScore++;
@@ -41,6 +42,7 @@ function playRound(humanChoice, computerChoice){
         para.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
         userScore.textContent = `Player Score: ${humanScore}`;
         compScore.textContent = `Computer Score: ${computerScore}`;
+        checkScore(humanScore, computerScore);
     }
     else if((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")){
         humanScore++;
@@ -49,6 +51,7 @@ function playRound(humanChoice, computerChoice){
         para.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
         userScore.textContent = `Player Score: ${humanScore}`;
         compScore.textContent = `Computer Score: ${computerScore}`;
+        checkScore(humanScore, computerScore);
     }
 
 }
@@ -112,5 +115,14 @@ para.textContent = "Begin Game! Select your choice."
 userScore.textContent = `Player Score: ${humanScore}`;
 compScore.textContent = `Computer Score: ${computerScore}`;
 
+
+function checkScore(humanScore, computerScore){
+    if(humanScore == 5){
+        return para.textContent += `\nYou have won the game!`;
+    }
+    else if(computerScore == 5){
+        return para.textContent += `\nComputer has won the game!`;
+    }
+}
 
 //playGame();

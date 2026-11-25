@@ -30,16 +30,22 @@ function playRound(humanChoice, computerChoice){
     if((humanChoice === "rock" && computerChoice === "rock") || (humanChoice === "paper" && computerChoice === "paper") || (humanChoice === "scissors" && computerChoice === "scissors")){
         console.log(`You tied! ${computerChoice} ties with ${humanChoice}`);
         console.log(`Human: ${humanScore} Computer: ${computerScore}`);
+        userScore.textContent = `Player Score: ${humanScore}`;
+        compScore.textContent = `Computer Score: ${computerScore}`;
     }
     else if((humanChoice === "rock" && computerChoice === "paper") || (humanChoice === "paper" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "rock")){
         computerScore++;
         console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
         console.log(`Human: ${humanScore} Computer: ${computerScore}`);
+        userScore.textContent = `Player Score: ${humanScore}`;
+        compScore.textContent = `Computer Score: ${computerScore}`;
     }
     else if((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")){
         humanScore++;
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
         console.log(`Human: ${humanScore} Computer: ${computerScore}`);
+        userScore.textContent = `Player Score: ${humanScore}`;
+        compScore.textContent = `Computer Score: ${computerScore}`;
     }
 
 }
@@ -92,11 +98,16 @@ document.body.append(container);
 
 const scoreboard = document.createElement("div");
 scoreboard.classList.add("scoreboard");
+const para = document.createElement("p");
 const userScore = document.createElement("p");
 const compScore = document.createElement("p");
 
-scoreboard.append(userScore, compScore);
+scoreboard.append(para, userScore, compScore);
 document.body.append(scoreboard);
+// NEED TO ADD SCORES TO THE NEWLY CREATED DIV "SCOREBOARD" //
+para.textContent = "Begin Game! Select your choice."
+userScore.textContent = `Player Score: ${humanScore}`;
+compScore.textContent = `Computer Score: ${computerScore}`;
 
 
 
